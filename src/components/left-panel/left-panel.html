@@ -1,0 +1,19 @@
+<div id="lpcontainer" >
+    <div id="lp">
+        <div class="row">
+            <h1 align="center"><strong>{{'Service Web Catalogue' | translate}}</strong></h1><hr>
+        </div>
+        <div ng-show="panelCtrl.loading">
+            <!--Le partie de nombre totale des records dans le service CSW-->
+            <div class="row">
+                <div id="nbtotale" class="col-sm-12"><h4><span class="label label-success">{{'Le nombre total des données trouvées' | translate}} : {{panelCtrl.nbre_matched_elements}}</span></h4></div>
+            </div>
+            <!--La partie des contraintes de recherche-->
+            <search-criteria></search-criteria>
+
+            <list-result></list-result>
+
+        </div>
+
+    </div>
+</div>

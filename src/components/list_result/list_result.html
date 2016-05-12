@@ -1,0 +1,48 @@
+<div id="lr" class="col-sm-12">
+    <div class="row"><h4 style="margin-top: 0px;"><span class="label label-primary">{{'La liste des résultats' | translate}}:</span></h4></div>
+    <div class="row">
+        <div class="col-sm-12 well" padding-bottom = "0px"
+             ng-repeat="record in lrCtrl.mydata.content"
+             ng-mouseenter="lrCtrl.selectedRecord($index)"
+             ng-mouseleave="lrCtrl.leavedRecord($index)"
+             ng-click="lrCtrl.zoomExtent($index)"
+             uib-tooltip="Cliquer pour zommer"
+             tooltip-placement="bottom"
+             tooltip-trigger="mouseenter">
+            <div class="col-sm-4">
+                <img src="img/position.png" width="100%" class="img-responsive"/>
+            </div>
+            <div class="col-sm-8 well" style="margin-bottom:0px; padding-bottom: 8px">
+                <div class="my_scrolling_div">
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>{{"L'id"| translate}} : </b> {{record.identifier}}</li>
+                        <li class="list-group-item"><b>{{'Le titre' | translate}} : </b> {{record.title.firstValue}}</li>
+                        <li class="list-group-item"><b>{{"L'abstract" | translate}} : </b> {{record.abstract_record}}</li>
+                    </ul>
+                </div>
+                <div class="col-centered text-center">
+                    <button class="btn btn-success glyphicon glyphicon-info-sign btn-sm"
+                            uib-tooltip="Afficher le detail de record"
+                            tooltip-placement="right"
+                            tooltip-trigger="mouseenter"
+                            ng-click=lrCtrl.detail(record)></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Définir le systéme de pagination -->
+            <div class="row">
+                <div class="alert alert-success text-center" ng-show="lrCtrl.loading_finish"><b>{{'Le nombre totale des pages' | translate}} : {{lrCtrl.totalItems/lrCtrl.page_size | ceil }}</b></div>
+            </div>
+            <hr>
+            <div class="row col-centered text-center">
+                <!--Le code de directive de système de pagination-->
+                <uib-pagination total-items="lrCtrl.totalItems" ng-model="lrCtrl.currentPage"
+                                ng-change="lrCtrl.pageChanged()" max-size="lrCtrl.maxSize"
+                                boundary-links="true"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

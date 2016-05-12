@@ -1,0 +1,24 @@
+<div id="header" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header" STYLE="margin-right: 20px; margin-left: 10px">
+        <img src="img/logo.png">
+    </div>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 10px">
+        <li id="header_acceuil_menu" class="active"><a href="" style="padding-top: 18px;"><b>{{'Accueil' | translate}}</b></a></li>
+        <li class="" uib-dropdown uib-dropdown-toggle on-toggle="headerCtrl.toggled(open)">
+            <a href="" style="padding-top: 18px;"><b>{{'Langue' | translate}}</b> <span class="fa fa-caret-square-o-down"></span></a>
+            <ul class="dropdown-menu" style="opacity: 0.9">
+                <li><a href="" style="color: #0000CC"
+                       ng-click="headerCtrl.change_language('fr')"><b>Français</b></a></li>
+                <div class="divider"></div>
+                <li><a href="" style="color: #0000CC"
+                       ng-click="headerCtrl.change_language('en')"><b>English</b></a></li>
+            </ul>
+        </li>
+        <li id="sss"><a HREF="" style="padding-top: 18px;"><b>{{'Aide' | translate}}</b> <span class="fa fa-question"></span></a></li>
+    </ul>
+
+</div>
+
+
+
+

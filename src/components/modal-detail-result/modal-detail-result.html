@@ -1,0 +1,51 @@
+<div class="well-sm">
+    <div class="row well-sm">
+        <div class="col-sm-11">
+            <div><h3 class="modal-title list-group-item list-group-item-info"> <strong>ID : {{modalCtrl.current_record.identifier}}</strong></h3></div>
+        </div>
+        <div class="col-sm-1"><button class="btn btn-warning glyphicon glyphicon-remove" ng-click="modalCtrl.fermer()"></button></div>
+    </div>
+    <hr class="my_rule">
+    <div id="modalInstance">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="modal-body">
+                    <!--The Modal Body-->
+                    <div class="row"><h4><b>{{'Informations générales' | translate}}</b></h4></div>
+                    <div class="row list-group-item">
+                        <div class="col-sm-2"><h5><b>{{'Titre' | translate}} :</b></h5></div>
+                        <div class="col-sm-offset-1 col-sm-9">{{modalCtrl.current_record.title.firstValue}}</div>
+                    </div>
+                    <div class="row list-group-item">
+                        <div class="col-sm-2" ><h5><b>{{'Abstract' | translate}} :</b></h5></div>
+                        <div class="col-sm-offset-1 col-sm-9">{{modalCtrl.current_record.abstract_record}}</div>
+                    </div>
+                    <div class="row list-group-item">
+                        <div class="col-sm-2"><h5><b>{{'Sujets' | translate}} :</b></h5></div>
+                        <div class="col-sm-offset-1 col-sm-9">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="subject in modalCtrl.current_record.subjects">
+                                    <b>{{subject.firstValue}}</b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row list-group-item">
+                        <div class="col-sm-2"><h5><b>Date :</b></h5></div>
+                        <div class="col-sm-offset-1 col-sm-9"></b>{{modalCtrl.current_record.dates}}</div>
+                    </div>
+                    <div class="row list-group-item">
+                        <div class="col-sm-2"><h5><b>{{'Tandis Spatial' | translate}} :</b></h5></div>
+                        <div class="col-sm-offset-1 col-sm-9">
+                            <ul class="list-group">
+                                <li class="list-group-item">{{modalCtrl.current_record.boundingBox[0].value.crs}}</li>
+                                <li class="list-group-item">{{modalCtrl.current_record.boundingBox[0].value.lowerCorner}}</li>
+                                <li class="list-group-item">{{modalCtrl.current_record.boundingBox[0].value.upperCorner}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

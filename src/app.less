@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  //padding-top: 60px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+[ng-cloak] {
+  display: none !important;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+#lp_directive{
+  padding-right:0px;
+  padding-left:0px;
+  z-index: 10;
+  position: fixed;
+  opacity: 0.9;
+}
+
+#map_directive{
+  padding-left:0px;
+  padding-right: 0px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+
+@import "components/main-map/main-map.less";
+@import "components/left-panel/left-panel.less";
+@import "components/search_criteria/search_criteria.less";
+@import "components/list_result/list_result.less";
+@import "components/modal-detail-result/modal-detail-result.less";
+@import "components/notification/notification.less";
+@import "components/notification_initial_view/notification_initial_view.less";
+@import "components/header/header.less";
+@import "components/footer/footer.less";
+//@import "components/notification_left_panel/notification_left_panel.less";
+
+
+
+
+
+
+

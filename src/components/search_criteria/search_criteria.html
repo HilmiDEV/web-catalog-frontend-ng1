@@ -1,0 +1,114 @@
+<!--La partie des contraintes de recherche-->
+<div id="sc" class="row">
+    <div class="col-sm-12">
+        <button  type="button" class="btn btn-danger btn-block glyphicon glyphicon-search"
+                 ng-click="scCtrl.isCollapsed = !scCtrl.isCollapsed"
+                 uib-tooltip="Appliquer une recherche"
+        tooltip-placement="bottom"
+        tooltip-trigger="mouseenter"></button><hr>
+
+        <div uib-collapse="scCtrl.isCollapsed">
+            <div class="well well-lg">
+                <span class="lead"><b>{{'RECHERCHE' | translate}}</b></span><hr>
+                <input type="text" class="form-control" title="Keywords" placeholder="Taper les keywords" ng-model="scCtrl.keywords"
+                       uib-tooltip="Saisir des keywords pour appliquer dans la recherhche"
+                tooltip-placement="bottom"
+                tooltip-trigger="mouseenter">
+                <hr>
+                <!--Declaration de DatePicker -->
+                <div class="row"><strong>{{'RECHERCHE PAR DATE' | translate}} :</strong></div>
+                <br>
+                <div class="row well">
+                    <div class="col-sm-12">
+                        <span class="col-sm-1"><b>{{'De' | translate}}</b></span>
+                        <div class="col-sm-5">
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{scCtrl.format}}"
+                                       ng-model="scCtrl.dt1" is-open="scCtrl.popup1.opened"
+                                       datepicker-options="scCtrl.dateOptions" ng-required="true"
+                                       show-button-bar="false"
+                                       uib-tooltip="La date de debut de la recherche"
+                                tooltip-placement="bottom"
+                                tooltip-trigger="mouseenter" readonly/>
+                        <span class="input-group-btn">
+                         <button type="button" class="btn btn-default" ng-click="scCtrl.open_calender1()"><i
+                                 class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                            </p>
+                        </div>
+                        <span class="col-sm-1"><b>{{'au' | translate}}</b></span>
+                        <div class="col-sm-5">
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{scCtrl.format}}"
+                                       ng-model="scCtrl.dt2" is-open="scCtrl.popup2.opened"
+                                       datepicker-options="scCtrl.dateOptions" ng-required="true"
+                                       show-button-bar="false"
+                                       uib-tooltip="La date de fin de la recherche"
+                                tooltip-placement="bottom"
+                                tooltip-trigger="mouseenter" readonly/>
+                             <span class="input-group-btn"><button type="button" class="btn btn-default"
+                                                                   ng-click="scCtrl.open_calender2()">
+                                 <i class="glyphicon glyphicon-calendar"></i></button>
+                             </span>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div ng-show="scCtrl.date_error" class="form-group has-error">
+                        <span class="help-block">{{"Corrigez l'erreur s'il vous plait la date de début et toujour avant la date de fin" | translate}}</span>
+                    </div>
+
+
+                </div>
+                <hr>
+                <!--La partie de recherche par dessiner sur la Map-->
+                <div class="row"><p><b>{{"ZONE D'INTÉRÊT" | translate}} :</b></p></div>
+                <div class="row">
+                    <div class="well col-centered text-center">
+                        <div class="btn-group">
+                            <button class="btn btn-warning btn-lg fa fa-pencil-square-o"
+                                    uib-tooltip="Dessiner une boîte sur la carte"
+                            tooltip-placement="bottom-left"
+                            tooltip-trigger="mouseenter" ng-click="scCtrl.drawBox()">
+                            </button>
+                            <button class="btn btn-success btn-lg fa fa-circle-o"
+                                    uib-tooltip="Dessiner un cercle sur la carte"
+                            tooltip-placement="bottom-left"
+                            tooltip-trigger="mouseenter"
+                            style="margin-left: 0px" ng-click="scCtrl.drawCircle()">
+                            </button>
+                            <button class="btn btn-danger btn-lg fa fa-trash"
+                                    uib-tooltip="Nettoyer la carte"
+                            tooltip-placement="bottom-left"
+                            tooltip-trigger="mouseenter"
+                            style="margin-left: 0px" ng-click="scCtrl.cleanMap()">
+                            </button>
+                        </div>
+                    </div>
+                    <!--Fin de la partie de dessiner sur la carte-->
+                    <div class="row">
+                        <div class="col-centered text-center">
+                            <button class="btn btn-primary"
+                                    ng-disabled="!scCtrl.active_search"
+                                    ng-click="scCtrl.search()"
+                                    uib-tooltip="Appliquer la recherche"
+                            tooltip-placement="bottom"
+                            tooltip-trigger="mouseenter">{{'Recherche' | translate}}</button>
+                            <button class="btn btn-success"
+                                    ng-disabled="!scCtrl.active_search"
+                                    ng-click="scCtrl.init_res()"
+                                    uib-tooltip="Réinitialiser la résult de la recherche"
+                            tooltip-placement="bottom"
+                            tooltip-trigger="mouseenter">Réinitialiser</button>
+                        </div>
+                    </div>
+
+
+                </div> <!--Fin de la div de class Well-->
+            </div> <!--Fin de la div de Collapse-->
+
+
+        </div>
+
+
+    </div>

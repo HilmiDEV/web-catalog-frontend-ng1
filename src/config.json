@@ -1,0 +1,7 @@
+{
+  "mapProjection": "EPSG:4326",
+  "mapCenter" : [ 2.348, 48.853 ],
+  "mapZoom" : 6,
+  "pageSize" : 10,
+  "nbre_pagination_tab" : 8
+}
